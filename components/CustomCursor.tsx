@@ -48,7 +48,7 @@ export default function CustomCursor() {
 
       setIsInverted(
         target.tagName === "IMG" ||
-        target.closest("img") ||
+        !!target.closest("img") ||
         target.classList.contains("invert-cursor")
       );
     };
