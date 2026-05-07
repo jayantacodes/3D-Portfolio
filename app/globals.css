@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* Theme Variables */
+:root {
+  --background: #121212;
+  --foreground: #ededed;
+  --accent: #00ff88;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+.theme-cyberpunk {
+  --background: #0a0a0a;
+  --foreground: #00ff88;
+  --accent: #00ff88;
+  --glass-bg: rgba(0, 255, 136, 0.05);
+  --glass-border: rgba(0, 255, 136, 0.1);
+}
+
+
+
+.theme-forest {
+  --background: #0d1b1e;
+  --foreground: #e0f2f1;
+  --accent: #4db6ac;
+  --glass-bg: rgba(77, 182, 172, 0.05);
+  --glass-border: rgba(77, 182, 172, 0.1);
+}
+
+.theme-mono {
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Hide scrollbar for a cleaner look while maintaining scroll functionality */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--foreground);
+}
+
+/* Feature 9: Neon Text Selection */
+::selection {
+  background-color: var(--accent);
+  color: var(--background);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+}
+::-moz-selection {
+  background-color: var(--accent);
+  color: var(--background);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.8);
+}
+
+/* Gravity Fall Animation */
+.gravity-fall {
+  transition: transform 2s cubic-bezier(0.5, 0, 1, 1), opacity 2s !important;
+}
+
