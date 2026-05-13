@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { 
-  X, Briefcase, Camera, Share2, Hash, Code, Mail, 
-  ArrowRight, Download, Globe 
+import {
+  X, Briefcase, Camera, Share2, Hash, Code, Mail,
+  ArrowRight, Download, Globe
 } from "lucide-react";
 import DestructButton from "./DestructButton";
 import ParticleFooter from "./ParticleFooter";
@@ -27,7 +27,7 @@ export default function Footer() {
   return (
     <footer id="contact" className="relative w-full bg-background py-32 px-6 md:px-20 overflow-hidden text-foreground flex flex-col justify-between min-h-[80vh]">
       <ParticleFooter />
-      
+
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-foreground/5 blur-[150px] rounded-t-[100%] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-end flex-grow gap-20 md:gap-0">
@@ -46,19 +46,19 @@ export default function Footer() {
               </motion.span>
             ))}
           </h2>
-          
-          <motion.a 
+
+          <motion.a
             initial={{ opacity: 0, clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)" }}
             whileInView={{ opacity: 1, clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)" }}
             viewport={{ once: true }}
             transition={{ duration: 1, delay: 0.5, ease: "circOut" }}
-            href="mailto:coderjayanta@gmail.com" 
+            href="mailto:coderjayanta@gmail.com"
             className="inline-flex items-center gap-4 text-2xl md:text-4xl border-b border-foreground/30 pb-2 hover:border-foreground transition-colors interactive group w-max"
           >
             coderjayanta@gmail.com
             <span className="group-hover:translate-x-2 transition-transform"><ArrowRight size={32} /></span>
           </motion.a>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ export default function Footer() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="mt-12"
           >
-            <a 
+            <a
               href="/JayantaMondalResume.pdf"
               download="JayantaMondalResume.pdf"
               className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-foreground text-background font-bold uppercase tracking-widest rounded-full hover:scale-105 transition-transform active:scale-95 shadow-lg shadow-foreground/20"
@@ -77,7 +77,7 @@ export default function Footer() {
           </motion.div>
         </div>
 
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -90,10 +90,10 @@ export default function Footer() {
             { name: "Instagram", url: "https://www.instagram.com/JayantaCodes", icon: <Camera size={18} /> },
             { name: "Threads", url: "https://www.threads.net/@JayantaCodes", icon: <Hash size={18} /> },
             { name: "Facebook", url: "https://www.facebook.com/JayantaCodes", icon: <Share2 size={18} /> },
-            { name: "Github", url: "https://github.com/coderjayanta", icon: <Code size={18} /> }
+            { name: "Github", url: "https://github.com/jayantacodes", icon: <Code size={18} /> }
           ].map((link, i) => (
-            <a 
-              key={i} href={link.url} target="_blank" rel="noopener noreferrer" 
+            <a
+              key={i} href={link.url} target="_blank" rel="noopener noreferrer"
               className="flex items-center md:justify-end gap-3 text-foreground/60 hover:text-foreground transition-all group interactive"
             >
               <span className="text-sm font-mono uppercase tracking-widest">{link.name}</span>
