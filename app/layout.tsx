@@ -40,8 +40,45 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Jayanta | Creative Developer",
-  description: "A high-end scrollytelling personal portfolio website.",
+  title: "Jayanta Mondal | BCA Student, Web Developer, AI & Cybersecurity Enthusiast",
+  description: "Official portfolio of Jayanta Mondal — BCA student from Kolkata, India. Passionate about Web Development, App Development, AI, DevOps, Cybersecurity, and Cloud Computing. Explore projects, certifications, skills, and tech experiments built with modern technologies.",
+  keywords: ["Jayanta Mondal", "Jayanta Dev", "JayantaCodes", "Jayanta Developer", "BCA Student India", "Web Developer Kolkata", "Frontend Developer", "Full Stack Developer", "React Developer", "Next.js Developer", "AI Developer", "Cybersecurity Student", "DevOps Learner", "Cloud Computing", "Portfolio Website", "Indian Student Developer", "Software Developer India"],
+  authors: [{ name: "Jayanta Mondal" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://jayantadev.in",
+  },
+  openGraph: {
+    title: "Jayanta Mondal | Developer Portfolio",
+    description: "Explore the portfolio of Jayanta Mondal — student developer building modern web apps, AI projects, cybersecurity experiments, and interactive tech experiences.",
+    url: "https://jayantadev.in",
+    siteName: "Jayanta Dev Portfolio",
+    images: [
+      {
+        url: "public\Jayanta_Pic.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jayanta Mondal | Web Developer & Tech Creator",
+    description: "BCA student passionate about Web Development, AI, DevOps, Cybersecurity, and modern tech innovation.",
+    images: ["https://jayantadev.in/og-image.png"],
+  },
+  other: {
+    "revisit-after": "7 days",
+    "language": "English",
+  }
+};
+
+export const viewport = {
+  themeColor: "#0f172a",
 };
 
 export default function RootLayout({
@@ -51,6 +88,39 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} antialiased`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Jayanta Mondal",
+              "url": "https://jayantadev.in",
+              "image": "https://jayantadev.in/profile.jpg",
+              "sameAs": [
+                "https://www.linkedin.com/in/jayantadev",
+                "https://github.com/jayantadev",
+                "https://instagram.com/jayantacodes"
+              ],
+              "jobTitle": "Web Developer & Student",
+              "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "EIILM Kolkata"
+              },
+              "knowsAbout": [
+                "Web Development",
+                "React",
+                "Next.js",
+                "Cybersecurity",
+                "Artificial Intelligence",
+                "DevOps",
+                "Cloud Computing"
+              ]
+            })
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[#121212] text-[#ededed]">
         <ThemeProvider>
           <AudioManager>
