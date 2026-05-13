@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: "Jayanta Dev Portfolio",
     images: [
       {
-        url: "public\Jayanta_Pic.jpg",
+        url: "public/Jayanta_Pic.jpg",
         width: 1200,
         height: 630,
       },
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Jayanta Mondal | Web Developer & Tech Creator",
     description: "BCA student passionate about Web Development, AI, DevOps, Cybersecurity, and modern tech innovation.",
-    images: ["https://jayantadev.in/og-image.png"],
+    images: ["public\/Jayanta_Pic.jpg"],
   },
   other: {
     "revisit-after": "7 days",

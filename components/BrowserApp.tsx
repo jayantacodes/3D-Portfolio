@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  X as CloseIcon, RotateCw, ChevronLeft, ChevronRight, Globe, Lock, 
+import {
+  X as CloseIcon, RotateCw, ChevronLeft, ChevronRight, Globe, Lock,
   ExternalLink, Bookmark, Search, ShieldAlert, Globe2,
   X, Briefcase, Camera, Hash, Code, Share2
 } from "lucide-react";
@@ -14,7 +14,7 @@ const WHITELIST = [
   { name: "Instagram", url: "https://www.instagram.com/JayantaCodes", domain: "instagram.com", icon: <Camera size={24} /> },
   { name: "Threads", url: "https://www.threads.net/@JayantaCodes", domain: "threads.net", icon: <Hash size={24} /> },
   { name: "Facebook", url: "https://www.facebook.com/JayantaCodes", domain: "facebook.com", icon: <Share2 size={24} /> },
-  { name: "Github", url: "https://github.com/coderjayanta", domain: "github.com", icon: <Code size={24} /> }
+  { name: "Github", url: "https://github.com/jayantacodes", domain: "github.com", icon: <Code size={24} /> }
 ];
 
 export default function BrowserApp() {
@@ -35,7 +35,7 @@ export default function BrowserApp() {
   const navigateTo = (url: string) => {
     setIsLoading(true);
     setIsRestricted(false);
-    
+
     // Check if URL is whitelisted
     const isWhitelisted = WHITELIST.some(item => url.includes(item.domain));
     const isHome = url === "nova://home";
@@ -114,7 +114,7 @@ export default function BrowserApp() {
                 <div className="absolute left-4 top-1/2 -translate-y-1/2 text-white/20">
                   {isRestricted ? <ShieldAlert size={14} className="text-red-500" /> : <Lock size={14} />}
                 </div>
-                <input 
+                <input
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
@@ -134,7 +134,7 @@ export default function BrowserApp() {
           <div className="flex-1 bg-[#050505] relative overflow-hidden">
             <AnimatePresence mode="wait">
               {currentUrl === "nova://home" && (
-                <motion.div 
+                <motion.div
                   key="home"
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                   className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center"
@@ -144,7 +144,7 @@ export default function BrowserApp() {
                   </div>
                   <h1 className="text-4xl font-black tracking-tighter uppercase mb-4">NOVA <span className="text-accent italic">BROWSER</span></h1>
                   <p className="text-white/30 font-mono text-xs mb-12 max-w-sm tracking-widest">ENCRYPTED_PORTAL // SYSTEM_WHITELIST_ACTIVE</p>
-                  
+
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-xl w-full">
                     {WHITELIST.map((site) => (
                       <button
@@ -163,7 +163,7 @@ export default function BrowserApp() {
               )}
 
               {currentUrl === "nova://restricted" && (
-                <motion.div 
+                <motion.div
                   key="restricted"
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                   className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center"
@@ -175,7 +175,7 @@ export default function BrowserApp() {
                   <p className="text-white/40 font-mono text-xs max-w-md leading-relaxed">
                     The requested URL is not on the system whitelist. To maintain system integrity, only authorized social protocols are permitted in this session.
                   </p>
-                  <button 
+                  <button
                     onClick={() => navigateTo("nova://home")}
                     className="mt-8 px-6 py-2 bg-white/5 border border-white/10 rounded-full text-[10px] font-mono uppercase tracking-widest hover:bg-white/10 transition-all"
                   >
@@ -185,7 +185,7 @@ export default function BrowserApp() {
               )}
 
               {currentUrl.startsWith("http") && !isRestricted && (
-                <motion.div 
+                <motion.div
                   key="site"
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                   className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center"
@@ -197,16 +197,16 @@ export default function BrowserApp() {
                   <p className="text-white/40 font-mono text-xs mb-12 max-w-md">
                     Secure handshake complete. Redirecting to external protocol: <span className="text-accent">{currentUrl}</span>
                   </p>
-                  
-                  <a 
+
+                  <a
                     href={currentUrl} target="_blank" rel="noopener noreferrer"
                     className="px-12 py-4 bg-accent text-black font-black uppercase tracking-widest rounded-2xl hover:scale-105 transition-all flex items-center gap-3 shadow-2xl shadow-accent/20"
                   >
                     Enter Portal
                     <ExternalLink size={18} />
                   </a>
-                  
-                  <button 
+
+                  <button
                     onClick={() => navigateTo("nova://home")}
                     className="mt-8 text-[10px] font-mono text-white/20 hover:text-white transition-colors"
                   >
@@ -215,16 +215,16 @@ export default function BrowserApp() {
                 </motion.div>
               )}
             </AnimatePresence>
-            
+
             {/* Loading Overlay */}
             <AnimatePresence>
               {isLoading && (
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                   className="absolute inset-0 bg-[#050505] z-50 flex flex-col items-center justify-center"
                 >
                   <div className="w-48 h-[2px] bg-white/5 rounded-full overflow-hidden">
-                    <motion.div 
+                    <motion.div
                       initial={{ x: "-100%" }}
                       animate={{ x: "100%" }}
                       transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
